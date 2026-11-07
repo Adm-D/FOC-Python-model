@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pmsm-lab"
+version = "0.1.0"
+description = "Switching PMSM simulation, pluggable control and interactive FOC laboratory"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.2,<2.4", "numba>=0.62,<0.66", "fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "httpx>=0.28,<1"]
+
+[tool.setuptools.packages.find]
+include = ["pmsm_lab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
